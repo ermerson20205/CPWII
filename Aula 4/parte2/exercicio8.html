@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Positivo/Negativo</title>
+</head>
+<body>
+    <h1>Verificador de Números</h1>
+    
+    <form>
+        <label for="valor">Digite um valor:</label>
+        <input type="number" id="valor" placeholder="Digite um número" required>
+        <button type="button" onclick="verificarValor()">Verificar</button>
+    </form>
+    
+    <div id="resultado"></div>
+
+    <script>
+        function verificarValor() {
+            const valor = parseFloat(document.getElementById('valor').value);
+            const resultado = valor > 0 ? 'Positivo' : valor < 0 ? 'Negativo' : 'Zero';
+            document.getElementById('resultado').innerHTML = `<p>O valor ${valor} é <strong>${resultado}</strong></p>`;
+        }
+    </script>
+</body>
+</html>

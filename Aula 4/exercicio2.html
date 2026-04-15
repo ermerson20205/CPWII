@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <script>
+        function processNumber() {
+            const input = parseFloat(document.getElementById('numberInput').value);
+            if (isNaN(input)) {
+                alert('Por favor, insira um número válido.');
+                return;
+            }
+            const truncated = Math.trunc(input);
+            const result = Math.sqrt(truncated);
+            alert(`O resultado da raiz quadrada de ${truncated} é ${result}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Exercício 2</h1>
+    <p>Insira um número real:</p>
+    <input type="text" id="numberInput" placeholder="Digite um número real">
+    <button onclick="processNumber()">Calcular</button>
+</body>
+</html>

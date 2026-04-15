@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substituir Números por Símbolo</title>
+</head>
+<body>
+    <h1>Substituir Números por Símbolo</h1>
+    
+    <input type="text" id="frase" placeholder="Digite uma frase com números">
+    <button onclick="substituirNumeros()">Substituir</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function substituirNumeros() {
+            const frase = document.getElementById("frase").value;
+            const fraseAlterada = frase.replace(/\d/g, "#");
+            document.getElementById("resultado").textContent = "Resultado: " + fraseAlterada;
+        }
+    </script>
+</body>
+</html>

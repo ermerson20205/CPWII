@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - Math.trunc() e Math.sqrt()</title>
+</head>
+<body>
+    <div>
+        <h1>Calcular Raiz Quadrada</h1>
+        <input type="number" id="numero" placeholder="Digite um número real" step="any">
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcular() {
+            const entrada = document.getElementById('numero').value;
+            const resultado = document.getElementById('resultado');
+
+            if (entrada === '') {
+                alert('Por favor, digite um número');
+                return;
+            }
+
+            const numero = parseFloat(entrada);
+            const truncado = Math.trunc(numero);
+            const raizQuadrada = Math.sqrt(truncado);
+
+            resultado.innerHTML = `
+                <strong>Número original:</strong> ${numero}<br>
+                <strong>Após Math.trunc():</strong> ${truncado}<br>
+                <strong>Após Math.sqrt():</strong> ${raizQuadrada.toFixed(2)}
+            `;
+        }
+
+        document.getElementById('numero').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') calcular();
+        });
+    </script>
+</body>
+</html>

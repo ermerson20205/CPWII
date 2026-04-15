@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Idades</title>
+    <script>
+        function verificarAdultos() {
+            const idade1 = parseInt(document.getElementById('idade1').value);
+            const idade2 = parseInt(document.getElementById('idade2').value);
+            let resultado = '';
+
+            if (idade1 >= 18 && idade2 >= 18) {
+                resultado = `Ambos são adultos: ${idade1} e ${idade2}`;
+            } else if (idade1 >= 18 || idade2 >= 18) {
+                resultado = `Apenas um é adulto: ${idade1 >= 18 ? idade1 : idade2}`;
+            } else {
+                resultado = 'Nenhum é adulto.';
+            }
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+
+        function compararIgualdade() {
+            const idade1 = parseInt(document.getElementById('idade1').value);
+            const idade2 = parseInt(document.getElementById('idade2').value);
+
+            const resultado = (idade1 === idade2) 
+                ? 'As idades são iguais.' 
+                : 'As idades são diferentes.';
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Formulário de Comparação de Idades</h1>
+    <form onsubmit="return false;">
+        <label for="idade1">Idade 1:</label>
+        <input type="number" id="idade1" name="idade1" required>
+        <br><br>
+        <label for="idade2">Idade 2:</label>
+        <input type="number" id="idade2" name="idade2" required>
+        <br><br>
+        <button type="button" onclick="verificarAdultos()">Verificar Adultos</button>
+        <button type="button" onclick="compararIgualdade()">Comparar Igualdade</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html></form>

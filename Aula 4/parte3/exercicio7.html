@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Palavra em Frase</title>
+</head>
+<body>
+    <h1>Buscar Palavra em Frase</h1>
+    
+    <label for="frase">Digite uma frase:</label>
+    <input type="text" id="frase" placeholder="Digite a frase aqui">
+    <br><br>
+    
+    <label for="palavra">Digite a palavra para buscar:</label>
+    <input type="text" id="palavra" placeholder="Digite a palavra aqui">
+    <br><br>
+    
+    <button onclick="buscarPalavra()">Buscar</button>
+    <br><br>
+    
+    <div id="resultado"></div>
+
+    <script>
+        function buscarPalavra() {
+            const frase = document.getElementById('frase').value;
+            const palavra = document.getElementById('palavra').value;
+            const resultadoDiv = document.getElementById('resultado');
+            
+            if (frase === '' || palavra === '') {
+                resultadoDiv.innerHTML = '<p>Por favor, preencha ambos os campos.</p>';
+                return;
+            }
+            
+            const posicao = frase.search(palavra);
+            
+            if (posicao !== -1) {
+                resultadoDiv.innerHTML = `<p>A palavra "<strong>${palavra}</strong>" foi encontrada na posição <strong>${posicao}</strong>.</p>`;
+            } else {
+                resultadoDiv.innerHTML = `<p>A palavra "<strong>${palavra}</strong>" não foi encontrada na frase.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

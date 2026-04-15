@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arredondamento com Math</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Arredondamento de Números</h1>
+        
+        <label for="valor1">Valor 1:</label>
+        <input type="number" id="valor1" step="0.01" placeholder="Digite um número">
+        
+        <label for="valor2">Valor 2:</label>
+        <input type="number" id="valor2" step="0.01" placeholder="Digite um número">
+        
+        <label for="valor3">Valor 3:</label>
+        <input type="number" id="valor3" step="0.01" placeholder="Digite um número">
+        
+        <button onclick="arredondar()">Calcular</button>
+        
+        <div id="resultado" class="resultado">
+            <h2>Resultados:</h2>
+            <div id="conteudoResultado"></div>
+        </div>
+    </div>
+
+    <script>
+        function arredondar() {
+            const valor1 = parseFloat(document.getElementById("valor1").value);
+            const valor2 = parseFloat(document.getElementById("valor2").value);
+            const valor3 = parseFloat(document.getElementById("valor3").value);
+
+            if (isNaN(valor1) || isNaN(valor2) || isNaN(valor3)) {
+                alert("Por favor, preencha todos os campos com números válidos!");
+                return;
+            }
+
+            const html = `
+                <h3>Valor 1: ${valor1}</h3>
+                <p>Math.round(): ${Math.round(valor1)}</p>
+                <p>Math.ceil(): ${Math.ceil(valor1)}</p>
+                <p>Math.floor(): ${Math.floor(valor1)}</p>
+
+                <h3>Valor 2: ${valor2}</h3>
+                <p>Math.round(): ${Math.round(valor2)}</p>
+                <p>Math.ceil(): ${Math.ceil(valor2)}</p>
+                <p>Math.floor(): ${Math.floor(valor2)}</p>
+
+                <h3>Valor 3: ${valor3}</h3>
+                <p>Math.round(): ${Math.round(valor3)}</p>
+                <p>Math.ceil(): ${Math.ceil(valor3)}</p>
+                <p>Math.floor(): ${Math.floor(valor3)}</p>
+            `;
+
+            document.getElementById("conteudoResultado").innerHTML = html;
+            document.getElementById("resultado").style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Idades</title>
+</head>
+<body>
+    <h1>Verificador de Maioridade</h1>
+    
+    <form>
+        <label for="idade1">Primeira Idade:</label>
+        <input type="number" id="idade1" required>
+        
+        <label for="idade2">Segunda Idade:</label>
+        <input type="number" id="idade2" required>
+        
+        <button type="button" onclick="verificarAdultos()">Verificar Adultos</button>
+        <button type="button" onclick="compararIdades()">Comparar Idades</button>
+        <button type="button" onclick="verificarAmbos()">Ambos Adultos?</button>
+    </form>
+    
+    <div id="resultado"></div>
+    
+    <script>
+        function verificarAdultos() {
+            const idade1 = parseInt(document.getElementById("idade1").value);
+            const idade2 = parseInt(document.getElementById("idade2").value);
+            let resultado = "Adultos: ";
+            
+            if (idade1 > 18) resultado += "Primeira pessoa";
+            if (idade2 > 18) resultado += (idade1 > 18 ? " e Segunda pessoa" : "Segunda pessoa");
+            if (idade1 <= 18 && idade2 <= 18) resultado += "Nenhum";
+            
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+        
+        function compararIdades() {
+            const idade1 = parseInt(document.getElementById("idade1").value);
+            const idade2 = parseInt(document.getElementById("idade2").value);
+            
+            const resultado = idade1 === idade2 ? "Idades são iguais" : "Idades são diferentes";
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+        
+        function verificarAmbos() {
+            const idade1 = parseInt(document.getElementById("idade1").value);
+            const idade2 = parseInt(document.getElementById("idade2").value);
+            
+            const resultado = (idade1 > 18 && idade2 > 18) ? "Ambos são adultos!" : "Nem todos são adultos";
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

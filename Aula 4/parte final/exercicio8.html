@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 8 - Identificar Números</title>
+</head>
+<body>
+    <h1>Identificar Números na String</h1>
+    <input type="text" id="inputText" placeholder="Digite uma sequência de texto">
+    <button onclick="identificarNumeros()">Identificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function identificarNumeros() {
+            const texto = document.getElementById('inputText').value;
+            const numeros = texto.match(/\d+/g);// Expressão regular para encontrar números na string
+            const resultado = document.getElementById('resultado');
+            if (numeros) {
+                resultado.textContent = 'Números encontrados: ' + numeros.join(', ');
+            } else {
+                resultado.textContent = 'Nenhum número encontrado.';
+            }
+        }
+    </script>
+</body>
+</html>

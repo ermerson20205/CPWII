@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Três colunas de larguras proporcionais */
+    grid-template-areas:
+      "header header header"
+      "menu main sidebar"
+      "footer footer footer";
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .header {
+    grid-area: header;
+    background-color: purple;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .menu {
+    grid-area: menu;
+    background-color: #33b5e5;
+    color: white;
+    padding: 10px;
+  }
+
+  .main {
+    grid-area: main;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: #0099cc;
+    color: white;
+    padding: 10px;
+  }
+
+  .footer {
+    grid-area: footer;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Media query para telas menores que 600px */
+  @media only screen and (max-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* Uma única coluna para maior legibilidade */
+      grid-template-areas:
+        "header"
+        "menu"
+        "main"
+        "sidebar"
+        "footer"; /* Reorganiza os elementos em linhas */
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="header">Header</div>
+  <div class="menu">Menu</div>
+  <div class="main">Main Content</div>
+  <div class="sidebar">Sidebar</div>
+  <div class="footer">Footer</div>
+</div>
+
+</body>
+</html>

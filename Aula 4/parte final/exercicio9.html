@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <script>
+        const frase = prompt("Digite uma frase que contenha números:");
+        if (frase !== null) {
+            const textoAlterado = frase.replace(/\d/g, "*");// Substitui todos os dígitos por '*'
+            document.body.innerHTML = "<p>Texto alterado: " + textoAlterado + "</p>";
+        }
+    </script>
+</body>
+</html>

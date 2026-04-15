@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios 4 a 6</title>
+</head>
+<body>
+    <h1>Exercícios 4 a 6</h1>
+    <pre id="output"></pre>
+
+    <script>
+        const produto1 = { nome: "Caneta", preco: 2.5 };
+        const produto2 = { nome: "Lápis", preco: 3.0 };
+
+        const output = [];
+        output.push("Comparação de produto1 e produto2:");
+        for (const propriedade in produto1) {
+            if (produto1[propriedade] !== produto2[propriedade]) {
+                output.push(
+                    `Diferença em ${propriedade}: ${produto1[propriedade]} vs ${produto2[propriedade]}`
+                );
+            } else {
+                output.push(`Mesmo valor em ${propriedade}: ${produto1[propriedade]}`);
+            }
+        }
+
+        const linguagem = "JavaScript";
+        output.push("\nCaracteres da string linguagem:");
+        for (const caractere of linguagem) {
+            output.push(caractere);
+        }
+
+        const carros = ["BMW", "Toyota", "Honda"];
+        output.push("\nÍndice e valor do array carros:");
+        carros.forEach((valor, indice) => {
+            output.push(`Índice ${indice}: ${valor}`);
+        });
+
+        document.getElementById("output").textContent = output.join("\n");
+    </script>
+</body>
+</html>

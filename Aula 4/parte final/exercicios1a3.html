@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Exercícios 1 a 3</title>
+</head>
+<body>
+    <h1>Exercícios de Loop</h1>
+
+    <section>
+        <h2>1) Objeto pessoa</h2>
+        <div id="pessoa-output"></div>
+    </section>
+
+    <section>
+        <h2>2) Array de frutas</h2>
+        <div id="frutas-output"></div>
+    </section>
+
+    <section>
+        <h2>3) Soma de números</h2>
+        <div id="numeros-output"></div>
+    </section>
+
+    <script>
+        const pessoa = {
+            nome: "João",
+            idade: 28,
+            cidade: "Campo Grande"
+        };
+
+        const pessoaOutput = document.getElementById("pessoa-output");
+        let pessoaHtml = "";
+        for (const propriedade in pessoa) {
+            pessoaHtml += `${propriedade}: ${pessoa[propriedade]}<br>`;
+        }
+        pessoaOutput.innerHTML = pessoaHtml;
+
+        const frutas = ["maçã", "banana", "laranja"];
+        const frutasOutput = document.getElementById("frutas-output");
+        let frutasHtml = "";
+        for (const fruta of frutas) {
+            frutasHtml += `${fruta}<br>`;
+        }
+        frutasOutput.innerHTML = frutasHtml;
+
+        const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let soma = 0;
+        numeros.forEach(numero => {// Itera sobre cada número e acumula a soma
+            soma += numero;
+        });
+
+        const numerosOutput = document.getElementById("numeros-output");
+        numerosOutput.textContent = `Resultado da soma: ${soma}`;
+    </script>
+</body>
+</html>

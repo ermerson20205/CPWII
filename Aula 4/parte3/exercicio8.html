@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrator de Números</title>
+</head>
+<body>
+    <h1>Extrator de Números</h1>
+    
+    <label for="entrada">Digite uma sequência de texto:</label>
+    <input type="text" id="entrada" placeholder="Ex: abc123def456">
+    <button onclick="extrairNumeros()">Extrair Números</button>
+    
+    <div id="resultado"></div>
+
+    <script>
+        function extrairNumeros() {
+            const entrada = document.getElementById('entrada').value;
+            const resultado = document.getElementById('resultado');
+            
+            if (entrada.trim() === '') {
+                resultado.innerHTML = '<p>Por favor, digite algo!</p>';
+                return;
+            }
+            
+            const numeros = entrada.match(/\d+/g);// \d: qualquer dígito (0-9)   - +: uma ou mais ocorrências do padrão anterior
+                                                  //- g: flag global todas as correspondências, não apenas a primeira            
+            
+            if (numeros) {
+                resultado.innerHTML = '<p><strong>Números encontrados:</strong></p>' +
+                                    '<p>' + numeros.join(', ') + '</p>';
+            } else {
+                resultado.innerHTML = '<p>Nenhum número encontrado.</p>';
+            }
+        }
+        
+        document.getElementById('entrada').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                extrairNumeros();
+            }
+        });
+    </script>
+</body>
+</html>

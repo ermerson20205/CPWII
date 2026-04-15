@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Sorteio Eletrônico</title>
+</head>
+<body>
+    <h1>Sistema de Sorteio Eletrônico</h1>
+    <label for="min">Número Mínimo:</label>
+    <input type="number" id="min" placeholder="Digite o número mínimo">
+    
+    <label for="max">Número Máximo:</label>
+    <input type="number" id="max" placeholder="Digite o número máximo">
+    
+    <button onclick="sortear()">Sortear</button>
+    
+    <label for="verificar">Número para Verificar:</label>
+    <input type="number" id="verificar" placeholder="Digite o número para verificar">
+    
+    <button onclick="verificar()">Verificar</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        let numeroSorteado = null;
+
+        function sortear() {
+            const min = parseInt(document.getElementById('min').value);
+            const max = parseInt(document.getElementById('max').value);
+
+            if (isNaN(min) || isNaN(max) || min >= max) {
+                document.getElementById('resultado').innerText = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            numeroSorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById('resultado').innerText = `Número sorteado: ${numeroSorteado}`;
+        }
+
+        function verificar() {
+            const numero = parseInt(document.getElementById('verificar').value);
+
+            if (numeroSorteado === null) {
+                document.getElementById('resultado').innerText = "Por favor, realize o sorteio primeiro.";
+                return;
+            }
+
+            if (numero === numeroSorteado) {
+                document.getElementById('resultado').innerText = "Parabéns! Você acertou o número sorteado!";
+            } else {
+                document.getElementById('resultado').innerText = "Que pena! O número não foi sorteado.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Responsivo Grid e Flexbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container-principal {
+            padding: 15px;
+            /* Estilos para telas menores (Flexbox por padrão - mobile-first) */
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+            gap: 15px;      /* Espaçamento entre os itens flex */
+        }
+
+        .secao {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+            /* Propriedades Flex para os itens nas telas menores */
+            /* flex: flex-grow | flex-shrink | flex-basis */
+            flex: 1 1 280px; /* Tenta ocupar espaço igual, pode encolher, base de 280px */
+            /* Cada seção tentará ter pelo menos 280px de largura. Se não couber, quebra a linha. */
+
+            min-height: 150px; /* Altura mínima para visualização */
+            display: flex; /* Para centralizar o conteúdo da seção verticalmente */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .secao h2 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+
+        /* Media Query para telas maiores (a partir de 768px) */
+        @media (min-width: 768px) {
+            .container-principal {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
+                gap: 20px; /* Espaçamento entre os itens da grade */
+            }
+
+            .secao {
+                /* Remove ou ajusta propriedades flex se necessário, */
+                /* mas o display:grid no container já sobrepõe o comportamento flex dos itens diretos. */
+                /* A propriedade 'flex: 1 1 280px;' não terá efeito quando o pai é grid. */
+                /* Mantemos min-height e outros estilos internos da seção. */
+                margin-bottom: 0; /* Remove margem inferior se houver alguma do flex */
+            }
+        }
+
+        /* Apenas para diferenciar visualmente as seções */
+        .secao1 { background-color: #e7f3ff; }
+        .secao2 { background-color: #e2ffe7; }
+        .secao3 { background-color: #fff4e0; }
+
+    </style>
+</head>
+<body>
+
+    <header style="text-align: center; padding: 20px; background-color: #007bff; color: white;">
+        <h1>Demonstração Grid e Flexbox</h1>
+        <p>Redimensione a janela do navegador para ver a mágica acontecer!</p>
+    </header>
+
+    <main class="container-principal">
+        <section class="secao secao1">
+            <h2>Seção 1</h2>
+            <p>Este é o conteúdo da primeira seção. Em telas pequenas, usamos flexbox. Em telas maiores, usamos grid.</p>
+        </section>
+
+        <section class="secao secao2">
+            <h2>Seção 2</h2>
+            <p>Conteúdo da segunda seção. Ela se adaptará ao layout flexível ou em grade.</p>
+            <p>Mais um pouco de texto para testar o wrap.</p>
+        </section>
+
+        <section class="secao secao3">
+            <h2>Seção 3</h2>
+            <p>Terceira seção aqui! Veja como ela se reorganiza automaticamente com as outras.</p>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 15px; background-color: #343a40; color: white; margin-top: 20px;">
+        <p>&copy; 2024 Layout Responsivo</p>
+    </footer>
+
+</body>
+</html>

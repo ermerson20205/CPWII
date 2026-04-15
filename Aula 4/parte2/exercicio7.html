@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador ! - Inversão de Comparação</title>
+</head>
+<body>
+    <h1>Verificador de Números Diferentes</h1>
+    
+    <script>
+        let numero1 = 10;
+        let numero2 = 20;
+        
+        // Usando o operador ! para inverter a comparação
+        if (!(numero1 === numero2)) {
+            console.log(numero1 + " e " + numero2 + " são diferentes");
+            document.write("<p>" + numero1 + " e " + numero2 + " são diferentes</p>");
+        } else {
+            console.log(numero1 + " e " + numero2 + " são iguais");
+            document.write("<p>" + numero1 + " e " + numero2 + " são iguais</p>");
+        }
+        
+        // Exemplo adicional
+        let num3 = 5;
+        let num4 = 5;
+        
+        if (!(num3 === num4)) {
+            document.write("<p>" + num3 + " e " + num4 + " são diferentes</p>");
+        } else {
+            document.write("<p>" + num3 + " e " + num4 + " são iguais</p>");
+        }
+    </script>
+</body>
+</html>

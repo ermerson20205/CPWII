@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resolução dos Exercícios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    h2 {
+      color: #555;
+      margin-top: 20px;
+    }
+    div {
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Resolução dos Exercícios</h1>
+  
+  <h2>1) Objeto pessoa com for in</h2>
+  <div id="ex1"></div>
+  
+  <h2>2) Array frutas com for of</h2>
+  <div id="ex2"></div>
+  
+  <h2>3) Soma dos números com forEach()</h2>
+  <div id="ex3"></div>
+  
+  <h2>4) Comparação de objetos produto1 e produto2</h2>
+  <div id="ex4"></div>
+  
+  <h2>5) String linguagem com for of</h2>
+  <div id="ex5"></div>
+  
+  <h2>6) Array carros com forEach()</h2>
+  <div id="ex6"></div>
+  
+  <script>
+    // Exercício 1
+    const pessoa = { nome: "João", idade: 25, cidade: "São Paulo" };
+    let resultado1 = "";
+    for (let prop in pessoa) {
+      resultado1 += prop + ": " + pessoa[prop] + "<br>";
+    }
+    document.getElementById("ex1").innerHTML = resultado1;
+
+    // Exercício 2
+    const frutas = ["maçã", "banana", "laranja"];
+    let resultado2 = "";
+    for (let fruta of frutas) {
+      resultado2 += fruta + "<br>";
+    }
+    document.getElementById("ex2").innerHTML = resultado2;
+
+    // Exercício 3
+    const numeros = [1,2,3,4,5,6,7,8,9,10];
+    let soma = 0;
+    numeros.forEach(num => soma += num);
+    document.getElementById("ex3").innerHTML = "Soma: " + soma;
+
+    // Exercício 4
+    const produto1 = { nome: "Celular", preco: 1500 };
+    const produto2 = { nome: "Notebook", preco: 3000 };
+    let resultado4 = "";
+    for (let prop in produto1) {
+      if (produto1[prop] !== produto2[prop]) {
+        resultado4 += `Diferença em ${prop}: ${produto1[prop]} vs ${produto2[prop]}<br>`;
+      }
+    }
+    document.getElementById("ex4").innerHTML = resultado4;
+
+    // Exercício 5
+    const linguagem = "JavaScript";
+    let resultado5 = "";
+    for (let char of linguagem) {
+      resultado5 += char + "<br>";
+    }
+    document.getElementById("ex5").innerHTML = resultado5;
+
+    // Exercício 6
+    const carros = ["BMW", "Toyota", "Honda"];
+    let resultado6 = "";
+    carros.forEach((carro, indice) => {
+      resultado6 += `Índice ${indice}: ${carro}<br>`;
+    });
+    document.getElementById("ex6").innerHTML = resultado6;
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Busca de Palavra na Frase</title>
+</head>
+<body>
+    <script>
+        const frase = prompt("Digite uma frase:");
+        const palavra = prompt("Digite a palavra para buscar:");
+        const posicao = frase.search(palavra);
+
+        if (posicao === -1) {
+            document.write("A palavra não foi encontrada na frase.");
+        } else {
+            document.write("A palavra foi encontrada na posição: " + posicao);
+        }
+    </script>
+</body>
+</html>

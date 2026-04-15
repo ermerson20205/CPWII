@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Valores</title>
+</head>
+<body>
+    <h1>Comparação de Valores</h1>
+    
+    <label for="valor1">Primeiro valor:</label>
+    <input type="text" id="valor1" placeholder="Digite o primeiro valor">
+    
+    <br><br>
+    
+    <label for="valor2">Segundo valor:</label>
+    <input type="text" id="valor2" placeholder="Digite o segundo valor">
+    
+    <br><br>
+    
+    <button onclick="compararValores()">Comparar</button>
+    
+    <br><br>
+    
+    <div id="resultado">
+        <p>Os resultados aparecerão aqui</p>
+    </div>
+    
+    <script>
+        function compararValores() {
+            const valor1 = document.getElementById('valor1').value;
+            const valor2 = document.getElementById('valor2').value;
+            
+            const resultado_igualdade = valor1 == valor2;
+            const resultado_identidade = valor1 === valor2;
+            const resultado_diferenca = valor1 != valor2;
+            
+            document.getElementById('resultado').innerHTML = `
+                <h2>Resultados:</h2>
+                <p><strong>Valor 1:</strong> ${valor1}</p>
+                <p><strong>Valor 2:</strong> ${valor2}</p>
+                <p><strong>== (igualdade):</strong> ${resultado_igualdade}</p>
+                <p><strong>=== (identidade):</strong> ${resultado_identidade}</p>
+                <p><strong>!= (diferença):</strong> ${resultado_diferenca}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

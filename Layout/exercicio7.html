@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Responsivo Unificado</title>
+    <style>
+        /* --- Estilos Gerais --- */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Estilos para os botões (opcional) */
+        .botao-desktop, .botao-mobile {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .botao-desktop {
+            background-color: #007bff; /* Azul */
+        }
+
+        .botao-mobile {
+            background-color: #28a745; /* Verde */
+        }
+
+        img {
+            max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+            height: auto;    /* Mantém a proporção da imagem */
+            margin-bottom: 10px;
+        }
+
+        /* --- Configuração Responsiva --- */
+
+        /* Por padrão, esconde os elementos de mobile e mostra os de desktop */
+        .conteudo-mobile {
+            display: none;
+        }
+
+        .conteudo-desktop {
+            display: block; /* ou 'flex', 'grid', etc., dependendo do layout */
+        }
+
+        /* Media Query para telas menores ou iguais a 992px */
+        @media (max-width: 992px) {
+            .conteudo-desktop {
+                display: none; /* Esconde os elementos de desktop */
+            }
+
+            .conteudo-mobile {
+                display: block; /* Mostra os elementos de mobile */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Ajusta o tamanho do título para telas menores */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Site Responsivo</h1>
+
+    <div class="conteudo-desktop">
+        <img src="desktop.png" alt="Imagem para Desktop">
+        <button class="botao-desktop">Botão Desktop</button>
+        <p>Este texto e elementos acima só aparecem em telas grandes (maiores que 992px).</p>
+    </div>
+
+    <div class="conteudo-mobile">
+        <img src="mobile.png" alt="Imagem para Mobile">
+        <button class="botao-mobile">Botão Mobile</button>
+        <p>Este texto e elementos acima só aparecem em telas pequenas (992px ou menos).</p>
+    </div>
+
+</body>
+</html>

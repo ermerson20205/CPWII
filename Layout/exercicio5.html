@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Site com Quatro Layouts Responsivos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            color: #222;
+            transition: background 0.3s;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 24px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header, .footer {
+            padding: 16px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .col {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s, font-size 0.3s;
+        }
+
+        /* Layout 1: até 600px */
+        @media (max-width: 600px) {
+            body { background: #e3f2fd; }
+            .header, .footer { background: #1976d2; }
+            .col { background: #bbdefb; font-size: 1rem; }
+            .main { flex-direction: column; }
+        }
+
+        /* Layout 2: 601px até 768px */
+        @media (min-width: 601px) and (max-width: 768px) {
+            body { background: #fff3e0; }
+            .header, .footer { background: #f57c00; }
+            .col { background: #ffe0b2; font-size: 1.1rem; }
+            .main { flex-direction: row; flex-wrap: wrap; }
+            .col { flex: 1 1 45%; }
+        }
+
+        /* Layout 3: 769px até 992px */
+        @media (min-width: 769px) and (max-width: 992px) {
+            body { background: #e8f5e9; }
+            .header, .footer { background: #388e3c; }
+            .col { background: #c8e6c9; font-size: 1.2rem; }
+            .main { flex-direction: row; }
+            .col { flex: 1 1 30%; }
+        }
+
+        /* Layout 4: acima de 1200px */
+        @media (min-width: 1200px) {
+            body { background: #f3e5f5; }
+            .header, .footer { background: #7b1fa2; }
+            .col { background: #ce93d8; font-size: 1.3rem; }
+            .main { flex-direction: row; }
+            .col { flex: 1 1 22%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Cabeçalho do Site</div>
+        <div class="main">
+            <div class="col">
+                <h2>Exercício 1</h2>
+                <p>Padrão em F: Para páginas com muito texto (blogs, notícias). O olhar foca no topo e na lateral esquerda.
+Padrão em Z: Para páginas com pouco texto (landing pages, logins). O olhar segue um traçado em "Z" para levar à conversão.
+Regra de ouro: Use F para leitura e Z para ação (clique/venda).
+</p>
+            </div>
+            <div class="col">
+                <h2>Exercício 2</h2>
+                <p>O Web Design Responsivo é a técnica que faz um site se adaptar automaticamente a qualquer tamanho de tela (celular, tablet ou PC) usando um único código.
+Como funciona: Usa grades fluídas (porcentagens), imagens flexíveis e regras de código (media queries) para reorganizar os elementos conforme o espaço disponível.</p>
+            </div>
+            <div class="col">
+                <h2>Exercício 3</h2>
+                <p>Layout Líquido (Fluído): Usa porcentagens.
+Vantagem: Adapta-se a qualquer monitor e aproveita todo o espaço da tela.
+Desvantagem: Pode esticar demais o texto em telas gigantes, dificultando a leitura.
+Layout Fixo: Usa pixels.
+Vantagem: O design fica exatamente igual em qualquer lugar (maior controle visual).
+Desvantagem: Péssimo para celulares, pois cria barras de rolagem laterais ou exige zoom.</p>
+                
+            </div>
+            <div class="col">
+                <h2>Exercício 4</h2>
+                <p>O que faz: Define que a largura do site deve ser igual à largura da tela do aparelho (width=device-width) e ajusta o zoom inicial para 100%.
+Importância: Sem ela, o celular tenta exibir a versão de desktop "espremida", deixando letras e botões minúsculos.</p>
+                
+                
+            </div>
+        </div>
+        <div class="footer">Rodapé do Site</div>
+    </div>
+</body>
+</html>
